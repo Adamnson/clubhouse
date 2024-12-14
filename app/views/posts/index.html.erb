@@ -1,0 +1,8 @@
+<h1>The conversation so far:</h1>
+<div>
+  <% @posts.each do |post| %>
+    <% post.body.split("\n").each do |line| %>
+      <p><%= line %></p>
+    <% end %>
+  <% end %>
+</div>
