@@ -1,6 +1,12 @@
 <h1>The conversation so far:</h1>
 <div>
+ 
   <% @posts.each do |post| %>
+    <% if user_signed_in? %>
+      <p><%= post.user.email %></p>
+    <% else %>
+      <p><%= "anon" %></p>
+    <% end %>
     <% post.body.split("\n").each do |line| %>
       <p><%= line %></p>
     <% end %>
