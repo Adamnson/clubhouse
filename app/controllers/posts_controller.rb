@@ -5,10 +5,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @post = Post.new
   end
 
   def create
+    @user = User.find(params[:user_id])
     @post = Post.new(post_body)
 
     if @post.save
@@ -20,10 +22,12 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
 
     if @post.update(post_body)

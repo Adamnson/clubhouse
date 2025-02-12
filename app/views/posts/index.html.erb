@@ -11,4 +11,9 @@
       <p><%= line %></p>
     <% end %>
   <% end %>
+  <% if user_signed_in? %>
+    <%= button_to "New Post", new_post_path %>
+  <% else %>
+    <p>Log in to post</p>
+  <% end %>
 </div>

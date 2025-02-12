@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :posts
+#  resources :users do
+#    resources :posts
+#  end
+  resources :posts, module: 'user'
   root "posts#index"
   devise_for :users,  controllers: {
     sessions: "users/sessions",

@@ -1,0 +1,11 @@
+.navbar,
+.contain-fluid {
+  min-height: 70px;
+  width: 100%;
+  
+}
+
+.navbar-nav {
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(150px, 30%));
+}
