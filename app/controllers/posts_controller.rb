@@ -10,8 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @post = Post.new(post_body)
+    @post.user = current_user
 
     if @post.save
       redirect_to root_path
@@ -27,11 +27,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
+    @post.user = current_user
 
     if @post.update(post_body)
-      redirect_to @post
+      redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
     end

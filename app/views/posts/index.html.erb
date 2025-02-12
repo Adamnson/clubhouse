@@ -8,11 +8,16 @@
       <p><%= "anon" %></p>
     <% end %>
     <% post.body.split("\n").each do |line| %>
-      <p><%= line %></p>
+      <div>
+        <p><%= line %></p>
+        <% if post.user.email.eql? current_user.email %>
+          <p><%= link_to "Edit", edit_user_post_path(current_user, post.id)%>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
   <% if user_signed_in? %>
-    <%= button_to "New Post", new_post_path %>
+    <%= button_to "New Post", new_user_post_path(current_user.id), :method => "get" %>
   <% else %>
     <p>Log in to post</p>
   <% end %>
