@@ -10,7 +10,7 @@
     <% post.body.split("\n").each do |line| %>
       <div>
         <p><%= line %></p>
-        <% if post.user.email.eql? current_user.email %>
+        <% if user_signed_in? && (post.user.email.eql? current_user.email) %>
           <p><%= link_to "Edit", edit_user_post_path(current_user, post.id)%>
         <% end %>
       </div>
